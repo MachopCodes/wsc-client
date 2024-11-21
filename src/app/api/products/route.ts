@@ -10,13 +10,13 @@ export async function GET() {
     const [products] = await db.query(sql);
     return NextResponse.json(products);
   } catch (error: unknown) {
+    console.error("Error fetching products:", error);
     if (error instanceof Error) {
       return NextResponse.json({ error: error.message });
     }
-    // Handle unexpected error types
     return NextResponse.json({ error: "An unexpected error occurred" });
   } finally {
-    if (db) await db.end(); // Explicitly close the connection
+    if (db) await db.end();
   }
 }
 

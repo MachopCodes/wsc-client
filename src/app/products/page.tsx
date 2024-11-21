@@ -14,7 +14,7 @@ export default function ProductsPage() {
     // Fetch products on component mount
     const fetchProducts = async () => {
       try {
-        const res = await fetch(`${apiUrl}/api/products`);
+        const res = await fetch(`${apiUrl}/api/products/`);
         if (!res.ok) {
           throw new Error("Failed to fetch products");
         }

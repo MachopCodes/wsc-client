@@ -4,11 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && next export",
-    "deploy": "npm run build && gh-pages -d out",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "homepage": "https://machopcodes.github.io/wsc-client"
+    "lint": "next lint"
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
@@ -16,7 +14,6 @@
     "mysql2": "^3.11.4",
     "next": "15.0.3",
     "next-cloudinary": "^6.16.0",
-    "pg-hstore": "^2.3.4",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "sequelize": "^6.37.5"
