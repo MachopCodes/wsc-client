@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true, // Disable image optimization (GitHub Pages doesn't support this)
   },
-  basePath: "https://github.com/MachopCodes/wsc-client.git", 
+  basePath: "/wsc-client", 
 };
 
 export default nextConfig;
