@@ -1,4 +1,4 @@
-import { Product, ProductEditForm } from "@/interfaces/Product";
+import { ProductEditForm } from "@/interfaces/Product";
 import { createConnection } from "@/utils/db";
 import { ResultSetHeader } from "mysql2/promise";
 import { NextResponse } from "next/server";
@@ -9,8 +9,12 @@ export async function GET() {
     const sql = "SELECT * FROM product";
     const [products] = await db.query(sql);
     return NextResponse.json(products);
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message });
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return NextResponse.json({ error: error.message });
+    }
+    // Handle unexpected error types
+    return NextResponse.json({ error: "An unexpected error occurred" });
   } finally {
     if (db) await db.end(); // Explicitly close the connection
   }
