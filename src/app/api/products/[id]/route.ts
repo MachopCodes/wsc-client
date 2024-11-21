@@ -33,6 +33,8 @@ export async function GET(
       { error: "Failed to fetch product" },
       { status: 500 }
     );
+  } finally {
+    if (db) await db.end(); // Explicitly close the connection
   }
 }
 
@@ -58,6 +60,8 @@ export async function DELETE(
       { error: "Failed to delete product" },
       { status: 500 }
     );
+  } finally {
+    if (db) await db.end(); // Explicitly close the connection
   }
 }
 
@@ -129,5 +133,7 @@ export async function PUT(
       { error: "Failed to update product" },
       { status: 500 }
     );
+  } finally {
+    if (db) await db.end(); // Explicitly close the connection
   }
 }

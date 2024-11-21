@@ -4,13 +4,15 @@ import { ResultSetHeader } from "mysql2/promise";
 import { NextResponse } from "next/server";
 
 export async function GET() {
+  const db = await createConnection();
   try {
-    const db = await createConnection();
     const sql = "SELECT * FROM product";
     const [products] = await db.query(sql);
     return NextResponse.json(products);
   } catch (error: any) {
     return NextResponse.json({ error: error.message });
+  } finally {
+    if (db) await db.end(); // Explicitly close the connection
   }
 }
 
@@ -55,5 +57,7 @@ export async function POST(req: Request) {
   } catch (error: unknown) {
     console.error("Error adding product:", error);
     return NextResponse.json({ error: "Failed to add product" }, { status: 500 });
+  } finally {
+    if (db) await db.end(); // Explicitly close the connection
   }
 }
