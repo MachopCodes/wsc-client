@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CldUploadWidget } from "next-cloudinary";
+import { CldUploadWidget, CloudinaryUploadWidgetResults } from "next-cloudinary";
 
 interface ProductFormProps {
   initialValues?: {
@@ -38,10 +38,8 @@ export default function ProductForm({
     description: initialValues?.description || "",
   });
 
-  const [uploading, setUploading] = useState(false);
-
-  const handleImageUpload = (result: any) => {
-    if (result.event === "success") {
+  const handleImageUpload = (result: CloudinaryUploadWidgetResults) => {
+    if (result.event === "success" && typeof result.info !== "string" && result.info?.secure_url) {
       setForm({ ...form, image: result.info.secure_url });
     }
   };
@@ -122,7 +120,6 @@ export default function ProductForm({
       <button
         type="submit"
         className="px-4 py-2 bg-blue-500 text-white rounded"
-        disabled={uploading}
       >
         {initialValues ? "Update Product" : "Add Product"}
       </button>

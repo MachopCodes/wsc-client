@@ -5,6 +5,7 @@ import { useParams } from "next/navigation"; // Import useParams
 import ProductForm from "@/components/ProductForm";
 import { useRouter } from "next/navigation";
 import BackButton from "@/components/BackButton";
+import { ProductEditForm } from "@/interfaces/Product";
 
 export default function EditProductPage() {
   const router = useRouter();
@@ -35,7 +36,7 @@ export default function EditProductPage() {
     }
   }, [id]);
 
-  const handleEditProduct = async (form: any) => {
+  const handleEditProduct = async (form: ProductEditForm) => {
     const res = await fetch(`/api/products/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

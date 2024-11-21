@@ -1,14 +1,14 @@
 "use client";
 
-import Link from "next/link";
 import ProductForm from "@/components/ProductForm";
 import { useRouter } from "next/navigation";
 import BackButton from "@/components/BackButton";
+import { ProductEditForm } from "@/interfaces/Product";
 
 export default function AddProductPage() {
   const router = useRouter();
 
-  const handleAddProduct = async (form: any) => {
+  const handleAddProduct = async (form: ProductEditForm) => {
     const res = await fetch("/api/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

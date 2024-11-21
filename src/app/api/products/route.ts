@@ -1,4 +1,6 @@
+import { Product, ProductEditForm } from "@/interfaces/Product";
 import { createConnection } from "@/utils/db";
+import { ResultSetHeader } from "mysql2/promise";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -13,9 +15,9 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+  const db = await createConnection(); // Create a new connection for this request
   try {
-    const db = await createConnection();
-    const body = await req.json();
+    const body: ProductEditForm = await req.json(); // Explicitly type the request body
 
     // Validate required fields
     if (!body.name) {
@@ -40,16 +42,17 @@ export async function POST(req: Request) {
       body.description || null,
     ];
 
-    const [result] = await db.query(sql, values);
+    // Specify ResultSetHeader as the result type
+    const [result] = await db.execute<ResultSetHeader>(sql, values);
 
     // Return the newly added product
     const newProduct = {
-      id: result.insertId, // Assuming `insertId` is provided by MySQL
+      id: result.insertId, // `insertId` is typed correctly with ResultSetHeader
       ...body,
     };
 
     return NextResponse.json(newProduct, { status: 201 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error adding product:", error);
     return NextResponse.json({ error: "Failed to add product" }, { status: 500 });
   }

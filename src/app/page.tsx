@@ -10,7 +10,7 @@ export default function HomePage() {
           href="/products"
           className="mt-6 inline-block px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600"
         >
-          View Products
+         View Products
         </a>
       </div>
     </main>
