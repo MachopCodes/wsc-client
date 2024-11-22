@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CldUploadWidget, CloudinaryUploadWidgetResults } from "next-cloudinary";
+import Image from "next/image";
 
 interface ProductFormProps {
   initialValues?: {
@@ -110,10 +111,13 @@ export default function ProductForm({
       {form.image && (
         <div className="mt-2">
           <p>Uploaded Image:</p>
-          <img
+          <Image
             src={form.image}
             alt="Uploaded"
             className="w-32 h-32 object-cover mt-2"
+            layout="responsive"
+            width={200} 
+            height={150} 
           />
         </div>
       )}

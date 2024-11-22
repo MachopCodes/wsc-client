@@ -11,6 +11,10 @@ export interface Product extends RowDataPacket {
     description?: string;
   }
 
+  export interface ProductCardProps {
+    product: Product;
+  }
+
  export interface ProductEditForm {
     name: string;
     year?: string;
