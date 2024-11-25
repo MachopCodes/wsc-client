@@ -1,23 +1,23 @@
-import { ProductCardProps } from '@/interfaces/Product';
-import Image from 'next/image';
-
-
+import { ProductCardProps } from "@/interfaces/Product";
+import Image from "next/image";
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="border border-gray-300 rounded-lg shadow-md bg-white max-w-md overflow-hidden">
+    <div className="border border-gray-300 rounded-lg shadow-md bg-white bg-opacity-80 w-full overflow-hidden grid grid-cols-2">
+      {/* Left Column: Image */}
+      <div className="flex items-center justify-center p-4 bg-gray-100">
         {product.image && (
-        <div className="w-auto h-auto">
           <Image
             src={product.image}
             alt={product.name}
-            className="object-contain w-full h-auto max-w-full"
-            layout="responsive"
-            width={200} 
-            height={150} 
+            className="object-contain w-full h-auto"
+            width={200}
+            height={200}
           />
-        </div>
-      )}
+        )}
+      </div>
+
+      {/* Right Column: Product Details */}
       <div className="p-4">
         <h2 className="text-xl font-bold text-gray-800">{product.name}</h2>
         {product.year && (

@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { CldUploadWidget, CloudinaryUploadWidgetResults } from "next-cloudinary";
+import {
+  CldUploadWidget,
+  CloudinaryUploadWidgetResults,
+} from "next-cloudinary";
 import Image from "next/image";
 
 interface ProductFormProps {
@@ -40,7 +43,11 @@ export default function ProductForm({
   });
 
   const handleImageUpload = (result: CloudinaryUploadWidgetResults) => {
-    if (result.event === "success" && typeof result.info !== "string" && result.info?.secure_url) {
+    if (
+      result.event === "success" &&
+      typeof result.info !== "string" &&
+      result.info?.secure_url
+    ) {
       setForm({ ...form, image: result.info.secure_url });
     }
   };
@@ -55,6 +62,27 @@ export default function ProductForm({
       <h1 className="text-2xl font-bold mb-6 text-center">
         {initialValues ? "Edit" : "Add"} Product
       </h1>
+      <CldUploadWidget uploadPreset="ws_craft" onSuccess={handleImageUpload}>
+        {({ open }) => (
+          <button
+            type="button"
+            onClick={() => open()}
+            className="px-4 py-2 bg-green-500 text-white rounded"
+          >
+            Upload Image
+          </button>
+        )}
+      </CldUploadWidget>
+      {form.image && (
+        <div className="mt-2">
+          <p>Uploaded Image:</p>
+          <Image
+            src={form.image}
+            alt="Uploaded"
+            className="w-32 h-32 object-cover mt-2"
+          />
+        </div>
+      )}
       <input
         type="text"
         placeholder="Name"
@@ -97,30 +125,6 @@ export default function ProductForm({
         onChange={(e) => setForm({ ...form, description: e.target.value })}
         className="p-2 border border-gray-300 rounded"
       ></textarea>
-      <CldUploadWidget uploadPreset="ws_craft" onSuccess={handleImageUpload}>
-        {({ open }) => (
-          <button
-            type="button"
-            onClick={() => open()}
-            className="px-4 py-2 bg-green-500 text-white rounded"
-          >
-            Upload Image
-          </button>
-        )}
-      </CldUploadWidget>
-      {form.image && (
-        <div className="mt-2">
-          <p>Uploaded Image:</p>
-          <Image
-            src={form.image}
-            alt="Uploaded"
-            className="w-32 h-32 object-cover mt-2"
-            layout="responsive"
-            width={200} 
-            height={150} 
-          />
-        </div>
-      )}
       <button
         type="submit"
         className="px-4 py-2 bg-blue-500 text-white rounded"
