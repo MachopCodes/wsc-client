@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "W&S Craft Connection",
-  description: "Your Connection for Wines and Spirits",
+  title: "W&S Craft Connections",
+  description: "Explore premium wines and spirits sourced globally.",
 };
 
 export default function RootLayout({
@@ -25,6 +25,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
+        {/* Global Meta Tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="W&S Craft Connections" />
+        <meta name="keywords" content="wine, spirits, premium drinks" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
