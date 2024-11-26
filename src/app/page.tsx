@@ -42,51 +42,30 @@ function HomePageContent() {
 
   return (
     <main className="min-h-screen flex items-center justify-center">
-      {session && (
-        <button
-          onClick={() => signOut()}
-          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
-        >
-          Sign Out
-        </button>
-      )}
       <div className="text-center">
         <Logo></Logo> {/* logo has the background */}
-        <section
-          className="p-4 bg-gradient min-h-screen"
-        >
+        <section className="p-4 bg-gradient min-h-screen">
           {session && (
-            <Link href="/add_product">
-              <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-                Add Product
+            <div className="flex space-x-4">
+              <Link href="/add_product">
+                <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+                  Add Product
+                </button>
+              </Link>
+              <button
+                onClick={() => signOut()}
+                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+              >
+                Sign Out
               </button>
-            </Link>
+            </div>
           )}
           <ul className="flex flex-col gap-y-4 mt-4">
             {products.map((product) => (
               <li key={product.id} className="relative">
                 <ProductCard product={product} />
                 {session && (
-                  <div className="absolute top-4 right-4">
-                    <Link href={`/products/${product.id}/edit`}>
-                      <button className="px-2 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition">
-                        Edit
-                      </button>
-                    </Link>
-                    <DeleteButton
-                      productId={product.id}
-                      onDelete={handleProductDelete}
-                    />
-                  </div>
-                )}
-              </li>
-            ))}
-
-            {products.map((product) => (
-              <li key={product.id} className="relative">
-                <ProductCard product={product} />
-                {session && (
-                  <div className="absolute top-4 right-4">
+                  <div className="absolute top-4 left-4 flex space-x-2">
                     <Link href={`/products/${product.id}/edit`}>
                       <button className="px-2 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition">
                         Edit
@@ -102,9 +81,7 @@ function HomePageContent() {
             ))}
           </ul>
         </section>
-        <footer
-          className="bg-cover bg-center bg-fade-in text-center text-white py-6"
-        >
+        <footer className="bg-cover bg-center bg-fade-in text-center text-white py-6">
           <h4 className="text-xl font-semibold text-uppercase mb-4">
             let&apos;s connect
           </h4>
