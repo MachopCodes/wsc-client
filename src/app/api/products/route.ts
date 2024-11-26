@@ -48,19 +48,16 @@ export async function POST(req: Request) {
       body.description || null,
     ];
 
-    // Specify ResultSetHeader as the result type
-    const [result] = await db.execute<ResultSetHeader>(sql, values);
-
-    // Return the newly added product
-    const newProduct = {
-      id: result.insertId, // `insertId` is typed correctly with ResultSetHeader
-      ...body,
-    };
+    const [result] = await db.execute<ResultSetHeader>(sql, values); // Specify ResultSetHeader as the result type
+    const newProduct = { id: result.insertId, ...body }; // Return the newly added product
 
     return NextResponse.json(newProduct, { status: 201 });
   } catch (error: unknown) {
     console.error("Error adding product:", error);
-    return NextResponse.json({ error: "Failed to add product" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to add product" },
+      { status: 500 }
+    );
   } finally {
     if (db) await db.end(); // Explicitly close the connection
   }
