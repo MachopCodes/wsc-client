@@ -7,12 +7,6 @@ import { Product } from "@/interfaces/Product";
 import { useSession, signOut, SessionProvider } from "next-auth/react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "W&S Craft Connections",
-  description: "Learn about W&S Craft Connections and our products",
-};
 
 function HomePageContent() {
   const [products, setProducts] = useState<Product[]>([]); // State to store fetched products
