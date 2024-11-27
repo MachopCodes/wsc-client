@@ -134,6 +134,6 @@ export async function PUT(
       { status: 500 }
     );
   } finally {
-    if (db) await db.end(); // Explicitly close the connection
+    if (db) await db.end(); 
   }
 }
