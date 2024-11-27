@@ -17,7 +17,7 @@ export default function EditProductPage() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`/api/products/${id}`); // Use the `id` from useParams
+        const res = await fetch(`/api/products/${id}/`); // Use the `id` from useParams
         if (!res.ok) {
           throw new Error("Failed to fetch product");
         }
@@ -37,7 +37,7 @@ export default function EditProductPage() {
   }, [id]);
 
   const handleEditProduct = async (form: ProductEditForm) => {
-    const res = await fetch(`/api/products/${id}`, {
+    const res = await fetch(`/api/products/${id}/`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),

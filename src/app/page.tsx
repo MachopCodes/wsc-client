@@ -10,14 +10,14 @@ import { useState, useEffect } from "react";
 
 function HomePageContent() {
   const [products, setProducts] = useState<Product[]>([]); // State to store fetched products
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const { data: session, status } = useSession();
-
   useEffect(() => {
     // Fetch products on component mount
     const fetchProducts = async () => {
       try {
-        const res = await fetch('/api/products/');
+        const res = await fetch(`${apiUrl}/api/products/`);
         if (!res.ok) {
           throw new Error("Failed to fetch products");
         }

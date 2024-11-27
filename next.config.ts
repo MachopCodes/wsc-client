@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['res.cloudinary.com'], // Add the Cloudinary domain
   },
+  trailingSlash: true,
 };
 
 export default nextConfig;

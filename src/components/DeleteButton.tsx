@@ -12,7 +12,7 @@ export default function DeleteButton({ productId, onDelete }: DeleteButtonProps)
 
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-      const res = await fetch(`${apiUrl}/api/products/${productId}`, { method: "DELETE" });
+      const res = await fetch(`${apiUrl}/api/products/${productId}/`, { method: "DELETE" });
 
       if (res.ok) {
         alert(`Product with ID ${productId} deleted successfully`);

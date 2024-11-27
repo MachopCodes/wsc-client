@@ -9,7 +9,7 @@ export default function AddProductPage() {
   const router = useRouter();
 
   const handleAddProduct = async (form: ProductEditForm) => {
-    const res = await fetch("/api/products", {
+    const res = await fetch("/api/products/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
