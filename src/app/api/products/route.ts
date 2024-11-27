@@ -49,7 +49,7 @@ export async function POST(req: Request) {
     ];
 
     const [result] = await db.execute<ResultSetHeader>(sql, values); // Specify ResultSetHeader as the result type
-    const newProduct = { id: result.insertId, ...body }; // Return the newly added product
+    const newProduct = { id: result.insertId, ...body };
 
     return NextResponse.json(newProduct, { status: 201 });
   } catch (error: unknown) {
