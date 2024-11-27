@@ -4,14 +4,10 @@ import { ResultSetHeader } from "mysql2/promise";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  console.log('connecting to db')
   const db = await createConnection();
-  console.log('connected')
   try {
-    console.log('running query...')
     const sql = "SELECT * FROM product";
     const [products] = await db.query(sql);
-    console.log('done', products)
     return NextResponse.json(products);
   } catch (error: unknown) {
     console.error("Error fetching products:", error);
