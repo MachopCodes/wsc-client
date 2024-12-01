@@ -84,6 +84,7 @@ export async function PUT(
       );
     }
 
+    // Updated SQL query to include the new columns
     const sql = `
       UPDATE product
       SET 
@@ -93,7 +94,17 @@ export async function PUT(
       type = COALESCE(?, type),
       price = COALESCE(?, price),
       image = COALESCE(?, image),
-      description = COALESCE(?, description)
+      description = COALESCE(?, description),
+      serving_temperature = COALESCE(?, serving_temperature),
+      food_pairings = COALESCE(?, food_pairings),
+      grape_varietals = COALESCE(?, grape_varietals),
+      ageing_process = COALESCE(?, ageing_process),
+      tasting_notes = COALESCE(?, tasting_notes),
+      location_notes = COALESCE(?, location_notes),
+      brand_description = COALESCE(?, brand_description),
+      brand_image = COALESCE(?, brand_image),
+      winemaker_notes = COALESCE(?, winemaker_notes),
+      harvesting_technique = COALESCE(?, harvesting_technique)
       WHERE id = ?
     `;
 
@@ -107,6 +118,16 @@ export async function PUT(
       price,
       body.image ?? null,
       body.description ?? null,
+      body.serving_temperature ?? null,
+      body.food_pairings ?? null,
+      body.grape_varietals ?? null,
+      body.ageing_process ?? null,
+      body.tasting_notes ?? null,
+      body.location_notes ?? null,
+      body.brand_description ?? null,
+      body.brand_image ?? null,
+      body.winemaker_notes ?? null,
+      body.harvesting_technique ?? null,
       productId,
     ]);
 
@@ -134,6 +155,6 @@ export async function PUT(
       { status: 500 }
     );
   } finally {
-    if (db) await db.end(); 
+    if (db) await db.end();
   }
 }

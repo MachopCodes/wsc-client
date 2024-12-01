@@ -45,7 +45,7 @@ export default function EditProductPage() {
 
     if (res.ok) {
       alert("Product edited successfully!");
-      router.push("/products");
+      router.push("/");
     } else {
       alert("Failed to add product");
     }
@@ -61,7 +61,7 @@ export default function EditProductPage() {
 
   return (
     <div className="p-4">
-      <BackButton href="/products" label="Back to Products"></BackButton>
+      <BackButton href="/" label="Back to Products"></BackButton>
       <ProductForm initialValues={product} onSubmit={handleEditProduct} />
     </div>
   );

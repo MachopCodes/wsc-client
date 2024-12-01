@@ -20,6 +20,7 @@ export async function GET() {
   }
 }
 
+
 export async function POST(req: Request) {
   const db = await createConnection(); // Create a new connection for this request
   try {
@@ -34,8 +35,26 @@ export async function POST(req: Request) {
     }
 
     const sql = `
-      INSERT INTO product (name, year, region, type, price, image, description)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO product (
+        name,
+        year,
+        region,
+        type,
+        price,
+        image,
+        description,
+        serving_temperature,
+        food_pairings,
+        grape_varietals,
+        ageing_process,
+        tasting_notes,
+        location_notes,
+        brand_description,
+        brand_image,
+        winemaker_notes,
+        harvesting_technique
+      )
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
 
     const values = [
@@ -46,9 +65,21 @@ export async function POST(req: Request) {
       body.price || null,
       body.image || null,
       body.description || null,
+      body.serving_temperature || null,
+      body.food_pairings || null,
+      body.grape_varietals || null,
+      body.ageing_process || null,
+      body.tasting_notes || null,
+      body.location_notes || null,
+      body.brand_description || null,
+      body.brand_image || null,
+      body.winemaker_notes || null,
+      body.harvesting_technique || null,
     ];
 
     const [result] = await db.execute<ResultSetHeader>(sql, values); // Specify ResultSetHeader as the result type
+
+    // Build the response with the newly inserted product
     const newProduct = { id: result.insertId, ...body };
 
     return NextResponse.json(newProduct, { status: 201 });
