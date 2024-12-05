@@ -102,7 +102,7 @@ function HomePageContent() {
           </div>
           <div className="flex items-center justify-center flex-col ">
             <p className="mt-4 text-center max-w-2xl text-white drop-shadow-lg">
-              Whether you're looking to showcase your wines to the right buyers
+              Whether you&apos;re looking to showcase your wines to the right buyers
               or partner with exceptional winemakers, we&apos;re here to help
               you connect with those who value craftsmanship as much as you do.
             </p>
