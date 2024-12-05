@@ -87,21 +87,20 @@ function HomePageContent() {
           </ul>
         </section>
         <footer className="bg-cover bg-center bg-fade-in text-center text-white py-6">
-          <h4 className="text-xl font-semibold text-uppercase mb-4">
+          <h4 className="text-xl font-semibold text-uppercase mb-2">
             let&apos;s connect
           </h4>
           <a
             href="candreae1@gmail.com"
-            className="text-lg flex items-center justify-center gap-2 text-gray-300 hover:text-white transition"
+            className="text-lg flex items-center justify-center gap-2 text-gray-300 hover:text-white transition pb-2"
           >
-            <i className="fas fa-envelope"></i>
             <small>candreae1@gmail.com</small>
           </a>
-          <div className="flex justify-center items-center m-4">
+          <div className="flex justify-center items-center">
             <img src="/wscc.png" alt="Logo" className="w-16 object-contain" />
           </div>
           <div className="flex items-center justify-center flex-col ">
-            <p className="mt-4 text-center max-w-2xl text-white drop-shadow-lg">
+            <p className="mt-4 text-center max-w-2xl text-white drop-shadow-lg px-8 py-2">
               Whether you&apos;re looking to showcase your wines to the right buyers
               or partner with exceptional winemakers, we&apos;re here to help
               you connect with those who value craftsmanship as much as you do.
