@@ -36,16 +36,13 @@ export default function RootLayout({
           name="description"
           content="Your connection for wine and spirits."
         />
-      </head>
       {/* Open Graph Meta Tags */}
-      <meta property="og:title" content="W&S Craft Connections" />
-      <meta
-        property="og:description"
-        content="Your connection for wine and spirits."
-      />
+      <meta property="og:title" content="Wine & Spirits Craft Connections" />
+      <meta property="og:description" content="Your connection for wine and spirits." />
       <meta property="og:image" content="/logo.png" />
       <meta property="og:url" content="https://wscraftconnections.com" />
       <meta property="og:type" content="website" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
