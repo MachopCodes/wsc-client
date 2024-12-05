@@ -12,7 +12,7 @@ function HomePageContent() {
   const [products, setProducts] = useState<Product[]>([]); // State to store fetched products
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   useEffect(() => {
     // Fetch products on component mount
     const fetchProducts = async () => {
@@ -35,6 +35,7 @@ function HomePageContent() {
     setProducts((prev) => prev.filter((product) => product.id !== id));
   };
 
+  //  add this back later if we want.. add status useSession()
   // if (status === "loading") {
   //   return <p>Loading...</p>;
   // }
