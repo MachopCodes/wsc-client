@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="border border-gray-300 rounded-lg shadow-md bg-white bg-opacity-80 w-full overflow-hidden grid grid-cols-2 max-w-xl">
+    <div className="border border-gray-300 rounded-lg shadow-md bg-white bg-opacity-80 w-full overflow-visible grid grid-cols-2 max-w-xl">
       {/* Left Column: Image */}
       <div className="flex items-center justify-center p-4 bg-gray-100">
         {product.image && (
@@ -84,7 +84,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <b>Harvesting Technique:</b> {product.harvesting_technique}
           </p>
         )}
-        <p className="text-gray-700 mt-4 line-clamp-3">{product.description}</p>
+        <p className="text-gray-700 mt-4">{product.description}</p>
       </div>
     </div>
   );
