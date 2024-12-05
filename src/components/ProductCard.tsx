@@ -2,9 +2,8 @@ import { ProductCardProps } from "@/interfaces/Product";
 import Image from "next/image";
 
 export default function ProductCard({ product }: ProductCardProps) {
-  console.log('product', product)
   return (
-    <div className="border border-gray-300 rounded-lg shadow-md bg-white bg-opacity-80 w-full overflow-hidden grid grid-cols-2">
+    <div className="border border-gray-300 rounded-lg shadow-md bg-white bg-opacity-80 w-full overflow-hidden grid grid-cols-2 max-w-xl">
       {/* Left Column: Image */}
       <div className="flex items-center justify-center p-4 bg-gray-100">
         {product.image && (

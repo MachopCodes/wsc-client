@@ -35,14 +35,22 @@ function HomePageContent() {
     setProducts((prev) => prev.filter((product) => product.id !== id));
   };
 
-  if (status === "loading") {
-    return <p>Loading...</p>;
-  }
+  // if (status === "loading") {
+  //   return <p>Loading...</p>;
+  // }
 
   return (
     <main className="min-h-screen flex items-center justify-center">
       <div className="text-center">
         <Logo></Logo> {/* logo has the background */}
+        {session && (
+          <button
+            onClick={() => signOut()}
+            className="absolute z-10 top-4 right-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+          >
+            Sign Out
+          </button>
+        )}
         <section className="p-4 bg-gradient min-h-screen">
           {session && (
             <div className="flex space-x-4">
@@ -51,20 +59,16 @@ function HomePageContent() {
                   Add Product
                 </button>
               </Link>
-              <button
-                onClick={() => signOut()}
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
-              >
-                Sign Out
-              </button>
             </div>
           )}
           <ul className="flex flex-col gap-y-4 mt-4">
             {products.map((product) => (
-              <li key={product.id} className="relative">
-                <ProductCard product={product} />
+              <li
+                key={product.id}
+                className="relative flex justify-center items-center"
+              >
                 {session && (
-                  <div className="absolute top-4 left-4 flex space-x-2">
+                  <div className="relative space-x-2 border border-gray-300 rounded-lg shadow-md bg-white p-2 m-2">
                     <Link href={`/products/${product.id}/edit`}>
                       <button className="px-2 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition">
                         Edit
@@ -76,6 +80,7 @@ function HomePageContent() {
                     />
                   </div>
                 )}
+                <ProductCard product={product} />
               </li>
             ))}
           </ul>
@@ -85,12 +90,22 @@ function HomePageContent() {
             let&apos;s connect
           </h4>
           <a
-            href="mailto:hello@wscraftconnection.com"
+            href="candreae1@gmail.com"
             className="text-lg flex items-center justify-center gap-2 text-gray-300 hover:text-white transition"
           >
             <i className="fas fa-envelope"></i>
             <small>candreae1@gmail.com</small>
           </a>
+          <div className="flex justify-center items-center m-4">
+            <img src="/wscc.png" alt="Logo" className="w-16 object-contain" />
+          </div>
+          <div className="flex items-center justify-center flex-col ">
+            <p className="mt-4 text-center max-w-2xl text-white drop-shadow-lg">
+              Whether you're looking to showcase your wines to the right buyers
+              or partner with exceptional winemakers, we&apos;re here to help
+              you connect with those who value craftsmanship as much as you do.
+            </p>
+          </div>
         </footer>
       </div>
     </main>

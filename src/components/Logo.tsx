@@ -7,12 +7,9 @@ export default function Logo() {
     <main
       className="flex items-center justify-center flex-col bg-cover bg-center bg-no-repeat min-h-screen px-6 py-12"
       style={{
-        backgroundImage:
-          "url('/barrels.webp'), linear-gradient(to bottom, rgba(0, 0, 0, 0) 75%, rgba(139, 69, 19, 0.8) 100%)",
-        backgroundBlendMode: "normal",
-        WebkitMaskImage:
-          "linear-gradient(to bottom, black 75%, transparent 100%)",
-        maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+        backgroundImage: "url('/barrels.webp')",
+        WebkitMaskImage: "linear-gradient(to bottom, black 95%, transparent 100%)",
+        maskImage: "linear-gradient(to bottom, black 95%, transparent 100%)",
         WebkitMaskRepeat: "no-repeat",
         maskRepeat: "no-repeat",
       }}
