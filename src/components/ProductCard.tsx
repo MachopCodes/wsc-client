@@ -3,14 +3,16 @@ import Image from "next/image";
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <main className="border border-gray-300 rounded-lg shadow-md bg-white bg-opacity-80 w-full">
+    <main className="border border-gray-300 rounded-lg shadow-md bg-white bg-opacity-80 w-full max-w-xl">
       <h2 className="text-xl font-bold text-gray-800">{product.name}</h2>
       {product.brand_description && (
         <p className="text-sm text-gray-600">{product.brand_description}</p>
       )}
 
-      { product.description && <p className="text-gray-700 mt-4">{product.description}</p>}
-      <div className="overflow-visible grid grid-cols-2 max-w-xl">
+      {product.description && (
+        <p className="text-gray-700 mt-4">{product.description}</p>
+      )}
+      <div className="overflow-visible grid grid-cols-2 ">
         {/* Left Column: Image */}
         <div className="flex items-center justify-center">
           {product.image && (
