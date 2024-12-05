@@ -14,11 +14,11 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "W&S Craft Connections",
+  title: "Wine & Spirits Craft Connections",
   description: "Explore premium wines and spirits sourced globally.",
   openGraph: {
-    title: "W&S Craft Connections",
-    description: "Your connection for wine and spirits.",
+    title: "Wine & Spirits Craft Connections",
+    description: "Explore premium wines and spirits sourced globally.",
     url: "https://wscraftconnections.com",
     images: "/og_image.webp",
     type: "website",
