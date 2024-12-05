@@ -16,6 +16,13 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "W&S Craft Connections",
   description: "Explore premium wines and spirits sourced globally.",
+  openGraph: {
+    title: "W&S Craft Connections",
+    description: "Your connection for wine and spirits.",
+    url: "https://wscraftconnections.com",
+    images: "/og_image.webp",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -25,24 +32,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
-        {/* Global Meta Tags */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="author" content="W&S Craft Connections" />
-        <meta name="keywords" content="wine, spirits, premium drinks" />
-        <meta
-          name="description"
-          content="Your connection for wine and spirits."
-        />
-      {/* Open Graph Meta Tags */}
-      <meta property="og:title" content="Wine & Spirits Craft Connections" />
-      <meta property="og:description" content="Your connection for wine and spirits." />
-      <meta property="og:image" content="/logo.png" />
-      <meta property="og:url" content="https://wscraftconnections.com" />
-      <meta property="og:type" content="website" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
