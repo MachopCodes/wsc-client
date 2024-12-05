@@ -32,7 +32,20 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="W&S Craft Connections" />
         <meta name="keywords" content="wine, spirits, premium drinks" />
+        <meta
+          name="description"
+          content="Your connection for wine and spirits."
+        />
       </head>
+      {/* Open Graph Meta Tags */}
+      <meta property="og:title" content="W&S Craft Connections" />
+      <meta
+        property="og:description"
+        content="Your connection for wine and spirits."
+      />
+      <meta property="og:image" content="/logo.png" />
+      <meta property="og:url" content="https://wscraftconnections.com" />
+      <meta property="og:type" content="website" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
